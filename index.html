@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin & Answer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+
+    <!-- Start -->
+    <section id="start" class="screen active">
+      <h1 class="logo">🎡 Spin<span>&</span>Answer</h1>
+      <p class="tagline">Spin the wheel. Land a topic. Win the points.</p>
+      <div class="rules">
+        <p>🎯 8 spins per game</p>
+        <p>⏱️ 15 seconds for each question</p>
+        <p>🔥 Streaks add bonus points</p>
+        <p>💣 Beware of the bomb slice!</p>
+        <p>🎟️ 2 lifelines (50/50) to help you</p>
+      </div>
+      <button id="start-btn" class="btn big">Let's play</button>
+      <p class="best">🏆 Best score: <strong id="best">0</strong></p>
+      <button id="sound-btn" class="ghost">🔊 Sound on</button>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="screen">
+      <header class="hud">
+        <div class="stat"><small>Spin</small><b id="round">1/8</b></div>
+        <div class="stat"><small>Score</small><b id="score">0</b></div>
+        <div class="stat"><small>Streak</small><b id="streak">0 🔥</b></div>
+        <div class="stat"><small>Lifelines</small><b id="lifelines">2</b></div>
+      </header>
+
+      <div class="wheel-wrap">
+        <div class="pointer"></div>
+        <canvas id="wheel" width="800" height="800"></canvas>
+        <button id="spin-btn" class="spin-center">SPIN</button>
+      </div>
+
+      <p id="banner" class="banner">Press SPIN to start!</p>
+      <button id="quit" class="ghost">← Menu</button>
+    </section>
+
+    <!-- Result -->
+    <section id="result" class="screen">
+      <h1 id="res-emoji">🏆</h1>
+      <h2 id="res-title">Game over!</h2>
+      <p class="big" id="res-score">0</p>
+      <div class="res-grid">
+        <div><small>Correct</small><b id="res-correct">0</b></div>
+        <div><small>Best streak</small><b id="res-streak">0</b></div>
+        <div><small>Accuracy</small><b id="res-acc">0%</b></div>
+      </div>
+      <p id="res-new" class="new-best hidden">🎊 New best score!</p>
+      <div class="row">
+        <button id="again" class="btn">Play again</button>
+        <button id="menu" class="btn alt">Menu</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Question modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="m-head">
+        <span id="m-topic" class="chip">Topic</span>
+        <span id="m-pts" class="chip gold">+20</span>
+        <span id="m-timer" class="m-timer">15</span>
+      </div>
+      <div class="m-bar"><div id="m-fill"></div></div>
+      <h3 id="m-question"></h3>
+      <div id="m-options" class="m-options"></div>
+      <p id="m-feedback" class="m-feedback"></p>
+      <div class="m-actions">
+        <button id="m-5050" class="ghost">🎟️ 50/50</button>
+        <button id="m-continue" class="btn hidden">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
